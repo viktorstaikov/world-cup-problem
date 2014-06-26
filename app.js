@@ -66,7 +66,7 @@ function listMatches(matches) {
     matches: matches
   });
 
-  $('#main').empty();
+  $('#loading-image').hide();
   $('#main').append(html);
 
   $('.flag').on('click', function() {
