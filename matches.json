@@ -1,0 +1,238 @@
+[{
+	"match_number": 45,
+	"location": "Arena Pernambuco",
+	"datetime": "2014-06-26T13:00:00.000-03:00",
+	"status": "in progress",
+	"home_team": {
+		"country": "USA",
+		"code": "USA",
+		"goals": 0
+	},
+	"away_team": {
+		"country": "Germany",
+		"code": "GER",
+		"goals": 1
+	},
+	"winner": null,
+	"home_team_events": [{
+		"id": 1069,
+		"type_of_event": "yellow-card",
+		"player": "Gonzalez",
+		"time": "37"
+	}, {
+		"id": 1076,
+		"type_of_event": "substitution-out",
+		"player": "Davis",
+		"time": "59"
+	}, {
+		"id": 1077,
+		"type_of_event": "substitution-in",
+		"player": "Bedoya",
+		"time": "59"
+	}, {
+		"id": 1080,
+		"type_of_event": "yellow-card",
+		"player": "Beckerman",
+		"time": "62"
+	}, {
+		"id": 1093,
+		"type_of_event": "substitution-out",
+		"player": "Zusi",
+		"time": "84"
+	}, {
+		"id": 1094,
+		"type_of_event": "substitution-in",
+		"player": "Yedlin",
+		"time": "84"
+	}],
+	"away_team_events": [{
+		"id": 1067,
+		"type_of_event": "yellow-card",
+		"player": "HÖwedes",
+		"time": "11"
+	}, {
+		"id": 1072,
+		"type_of_event": "substitution-in halftime",
+		"player": "Klose",
+		"time": "46"
+	}, {
+		"id": 1071,
+		"type_of_event": "substitution-out halftime",
+		"player": "Podolski",
+		"time": "46"
+	}, {
+		"id": 1073,
+		"type_of_event": "goal",
+		"player": "MÜller",
+		"time": "55"
+	}, {
+		"id": 1088,
+		"type_of_event": "substitution-in",
+		"player": "GÖtze",
+		"time": "76"
+	}, {
+		"id": 1087,
+		"type_of_event": "substitution-out",
+		"player": "Schweinsteiger",
+		"time": "76"
+	}, {
+		"id": 1095,
+		"type_of_event": "substitution-out",
+		"player": "Özil",
+		"time": "89"
+	}, {
+		"id": 1096,
+		"type_of_event": "substitution-in",
+		"player": "SchÜrrle",
+		"time": "89"
+	}]
+}, {
+	"match_number": 46,
+	"location": "Estadio Nacional",
+	"datetime": "2014-06-26T13:00:00.000-03:00",
+	"status": "in progress",
+	"home_team": {
+		"country": "Portugal",
+		"code": "POR",
+		"goals": 2
+	},
+	"away_team": {
+		"country": "Ghana",
+		"code": "GHA",
+		"goals": 1
+	},
+	"winner": null,
+	"home_team_events": [{
+		"id": 1078,
+		"type_of_event": "substitution-out",
+		"player": "J. Pereira",
+		"time": "61"
+	}, {
+		"id": 1079,
+		"type_of_event": "substitution-in",
+		"player": "Varela",
+		"time": "61"
+	}, {
+		"id": 1081,
+		"type_of_event": "substitution-out",
+		"player": "éder",
+		"time": "69"
+	}, {
+		"id": 1082,
+		"type_of_event": "substitution-in",
+		"player": "Vieirinha",
+		"time": "69"
+	}, {
+		"id": 1090,
+		"type_of_event": "goal",
+		"player": "Ronaldo",
+		"time": "80"
+	}, {
+		"id": 1097,
+		"type_of_event": "substitution-out",
+		"player": "Beto",
+		"time": "89"
+	}, {
+		"id": 1098,
+		"type_of_event": "substitution-in",
+		"player": "Eduardo",
+		"time": "89"
+	}, {
+		"id": 1099,
+		"type_of_event": "yellow-card",
+		"player": "J. Moutinho",
+		"time": "904"
+	}],
+	"away_team_events": [{
+		"id": 1068,
+		"type_of_event": "goal-own",
+		"player": "Boye",
+		"time": "31"
+	}, {
+		"id": 1070,
+		"type_of_event": "yellow-card",
+		"player": "Harrison",
+		"time": "39"
+	}, {
+		"id": 1074,
+		"type_of_event": "yellow-card",
+		"player": "Waris",
+		"time": "55"
+	}, {
+		"id": 1075,
+		"type_of_event": "goal",
+		"player": "A. Gyan",
+		"time": "57"
+	}, {
+		"id": 1083,
+		"type_of_event": "substitution-out",
+		"player": "Waris",
+		"time": "71"
+	}, {
+		"id": 1084,
+		"type_of_event": "substitution-in",
+		"player": "J. Ayew",
+		"time": "71"
+	}, {
+		"id": 1085,
+		"type_of_event": "substitution-out",
+		"player": "Rabiu",
+		"time": "76"
+	}, {
+		"id": 1086,
+		"type_of_event": "substitution-in",
+		"player": "Acquah",
+		"time": "76"
+	}, {
+		"id": 1089,
+		"type_of_event": "yellow-card",
+		"player": "J. Ayew",
+		"time": "78"
+	}, {
+		"id": 1091,
+		"type_of_event": "substitution-out",
+		"player": "A. Ayew",
+		"time": "81"
+	}, {
+		"id": 1092,
+		"type_of_event": "substitution-in",
+		"player": "Wakaso",
+		"time": "81"
+	}]
+}, {
+	"match_number": 47,
+	"location": "Arena de Sao Paulo",
+	"datetime": "2014-06-26T17:00:00.000-03:00",
+	"status": "future",
+	"home_team": {
+		"country": "Korea Republic",
+		"code": "KOR",
+		"goals": 0
+	},
+	"away_team": {
+		"country": "Belgium",
+		"code": "BEL",
+		"goals": 0
+	},
+	"winner": null,
+	"home_team_events": [],
+	"away_team_events": []
+}, {
+	"match_number": 48,
+	"location": "Arena da Baixada",
+	"datetime": "2014-06-26T17:00:00.000-03:00",
+	"status": "future",
+	"home_team": {
+		"country": "Algeria",
+		"code": "ALG",
+		"goals": 0
+	},
+	"away_team": {
+		"country": "Russia",
+		"code": "RUS",
+		"goals": 0
+	},
+	"winner": null,
+	"home_team_events": [],
+	"away_team_events": []
+}]
