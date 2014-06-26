@@ -9,7 +9,6 @@ $(document).ready(function() {
 
     registerHelpers();
     listMatches(matches);
-
   });
 });
 
@@ -53,10 +52,23 @@ function registerHelpers() {
 function listMatches(matches) {
   var source = $('#list-template').html();
   var template = Handlebars.compile(source);
+  var countryCode = '';
+  var information = {};
   var html = template({
     matches: matches
   });
 
   $('#main').empty();
   $('#main').append(html);
+
+  $('.flag').on('click', function() {
+    countryCode = $(this).data('country');
+    $.getJSON('http://worldcup.sfg.io/matches/country?fifa_code=' + countryCode, function(countryMatches) {
+      console.log(countryMatches);
+      information.played = countryMatches.length;
+      countryMatches.foreach(function(match) {
+
+      });
+    });
+  });
 }
