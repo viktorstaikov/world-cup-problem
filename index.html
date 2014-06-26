@@ -19,6 +19,19 @@
 
 <script type="text/template" id="list-template">
 	{{#each matches}}
+		<div class="jumbotron">
+			<div class="match-status">{{{status}}}</div>
+		</div>
+		<div class="home-team">
+			<span>{{home_team.country}}</span>
+			<img scr="flags/{{{home_team.code}}}.png" />
+			<span>{{home_team.goals}}</span>
+		</div>
+		<div class="away-team">
+			<span>{{away_team.country}}</span>
+			<img scr="flags/{{{away_team.code}}}.png" />
+			<span>{{away_team.goals}}</span>
+		</div>
 	{{/each}}
 </script>
 </body>
