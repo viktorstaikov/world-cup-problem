@@ -43,6 +43,7 @@ function registerHelpers() {
 
       var status = 'Unknown status';
       if (minutesPassed > 90) {
+        minutesPassed = 90;
         status = 'Finished';
       } else {
         status = (90 - minutesPassed) + 'minutes left';
@@ -60,7 +61,6 @@ function registerHelpers() {
 function listMatches(matches) {
   var source = $('#list-template').html();
   var template = Handlebars.compile(source);
-  var countryCode = '', country = '', wins = 0, draw = 0;
   var information = {};
   var html = template({
     matches: matches
@@ -69,21 +69,42 @@ function listMatches(matches) {
   $('#loading-image').hide();
   $('#main').append(html);
 
-  $('.flag').on('click', function() {
-    countryCode = $(this).data('code');
-    country = $(this).data('country');
+  var popoverSrc = $('#popover-tmpl').html();
+  var popoverTmpl = Handlebars.compile(popoverSrc);
+
+  $('.flag').on('click', function(e) {
+    var $flag = $(e.currentTarget);
+    var countryCode = $(this).data('code');
+    var country = $(this).data('country');
+    var wins = 0;
+    var draw = 0;
     $.getJSON('http://worldcup.sfg.io/matches/country?fifa_code=' + countryCode, function(countryMatches) {
+      information.country = country;
       information.played = countryMatches.length;
       countryMatches.forEach(function(match) {
-        if (match.winner === country){
+        if (match.winner === country) {
           wins++;
         }
-        if (match.winner === 'Draw'){
+        if (match.winner === 'Draw') {
           draw++;
         }
       });
       information.wins = wins;
       information.draw = draw;
+
+      $flag.popover({
+        placement: 'bottom',
+        html: false,
+        content: popoverTmpl(information),
+        title: country,
+        trigger: 'manual'
+      });
+      console.log(popoverTmpl(information));
+      $flag.popover('show');
+      $('body').on('click', function() {
+        $flag.popover('destroy');
+      });
+
     });
   });
 }
