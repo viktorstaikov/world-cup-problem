@@ -11,6 +11,9 @@
 	<img id="loading-image" src="ajax-loader.gif" alt="Loading..." />
 </div>
 
+<div id="test">
+</div>
+
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="handlebars-v1.3.0.js"></script>
@@ -33,6 +36,15 @@
 			<span>{{away_team.goals}}</span>
 		</div>
 	{{/each}}
+</script>
+
+<script type="" id="progress-bar-tmpl">
+	<div class="progress progress-striped"> 
+	  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{pct}}" aria-valuemin="0" aria-valuemax="100" style="width: {{pct}}%">
+	    <span class="sr-only">{{minLeft}} minutes left</span>
+	    {{minLeft}} minutes left
+	  </div>
+	</div>
 </script>
 </body>
 </html>
