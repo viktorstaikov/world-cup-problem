@@ -1,0 +1,10 @@
+{
+  "jquery" : true,
+  "browser" : true,
+  "globals" : {
+    "alert" : true
+    "Handlebars" : true
+  }
+}
+
+
