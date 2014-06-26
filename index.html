@@ -25,12 +25,12 @@
 		<div class="jumbotron">
 			<div class="match-status row text-center">{{{status}}}</div>
 			<div class="teams row">
-				<div class="home-team col-xs-4 col-xs-offset-1">
+				<div class="home-team col-xs-6">
 					<span>{{home_team.country}}</span>
 					<img class="flag" data-country="{{home_team.code}}" src="flags/{{{home_team.code}}}.png" />
 					<span>{{home_team.goals}}</span>
 				</div>
-				<div class="away-team col-xs-4 col-xs-offset-2">
+				<div class="away-team col-xs-6">
 					<span>{{away_team.goals}}</span>
 					<img class="flag" data-country="{{away_team.code}}" src="flags/{{{away_team.code}}}.png" />
 					<span>{{away_team.country}}</span>
@@ -43,8 +43,8 @@
 <script type="text/template" id="progress-bar-tmpl">
 	<div class="progress progress-striped"> 
 	  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{pct}}" aria-valuemin="0" aria-valuemax="100" style="width: {{pct}}%">
-	    <span class="sr-only">{{minLeft}} minutes left</span>
-	    {{minLeft}} minutes left
+	    <span class="sr-only">{{msg}}</span>
+	    {{msg}}
 	  </div>
 	</div>
 </script>
