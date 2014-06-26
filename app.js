@@ -25,7 +25,7 @@ function registerHelpers() {
     if (match.status == 'future') {
       var startAt = hours + ':' + (minutes < 10 ? '0' : '') + minutes + ' h';
 
-      html = '<div>Starts at: ' + startAt + '</div>';
+      html = '<h3>Starts at: ' + startAt + '</h3>';
     } else {
       var source = $('#progress-bar-tmpl').html();
       var template = Handlebars.compile(source);
@@ -34,7 +34,7 @@ function registerHelpers() {
 
       var minutesPassed = (now.getHours() - hours) * 60 + now.getMinutes() - minutes;
 
-      if (45 < minutesPassed < 60) {
+      if (45 < minutesPassed && minutesPassed < 60) {
         minutesPassed = 45;
       }
       if (60 < minutesPassed) {
