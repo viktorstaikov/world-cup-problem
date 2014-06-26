@@ -24,7 +24,6 @@
 	{{#each matches}}
 		<div class="jumbotron">
 			<div class="match-status">{{{status}}}</div>
-		</div>
 		<div class="home-team">
 			<span>{{home_team.country}}</span>
 			<img scr="flags/{{{home_team.code}}}.png" />
@@ -35,6 +34,7 @@
 			<img scr="flags/{{{away_team.code}}}.png" />
 			<span>{{away_team.goals}}</span>
 		</div>
+	</div>
 	{{/each}}
 </script>
 
