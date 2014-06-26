@@ -26,12 +26,12 @@
 			<div class="match-status">{{{status}}}</div>
 		<div class="home-team">
 			<span>{{home_team.country}}</span>
-			<img src="flags/{{{home_team.code}}}.png" />
+			<img class="flag" data-country="{{home_team.code}}" src="flags/{{{home_team.code}}}.png" />
 			<span>{{home_team.goals}}</span>
 		</div>
 		<div class="away-team">
 			<span>{{away_team.country}}</span>
-			<img src="flags/{{{away_team.code}}}.png" />
+			<img class="flag" data-country="{{away_team.code}}" src="flags/{{{away_team.code}}}.png" />
 			<span>{{away_team.goals}}</span>
 		</div>
 	</div>
