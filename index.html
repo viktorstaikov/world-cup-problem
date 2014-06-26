@@ -24,12 +24,12 @@
 			<div class="teams row">
 				<div class="home-team col-xs-5 text-right">
 					<span>{{home_team.country}}</span>
-					<img class="flag" data-country="{{home_team.code}}" src="flags/{{{home_team.code}}}.png" />
+					<img class="flag" data-country="{{home_team.country}}" data-code="{{home_team.code}}" src="flags/{{{home_team.code}}}.png" />
 					<span>{{home_team.goals}}</span>
 				</div>
 				<div class="away-team col-xs-5 col-xs-offset-2">
 					<span>{{away_team.goals}}</span>
-					<img class="flag" data-country="{{away_team.code}}" src="flags/{{{away_team.code}}}.png" />
+					<img class="flag" data-country="{{away_team.country}}" data-code="{{away_team.code}}" src="flags/{{{away_team.code}}}.png" />
 					<span>{{away_team.country}}</span>
 				</div>
 			</div>
