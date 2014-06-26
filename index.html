@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div id='main'>
+<div id='main' class="col-sm-10 col-sm-offset-1 col-md-8  col-md-offset-2">
 	<img id="loading-image" src="ajax-loader.gif" alt="Loading..." />
 </div>
 
@@ -23,18 +23,20 @@
 <script type="text/template" id="list-template">
 	{{#each matches}}
 		<div class="jumbotron">
-			<div class="match-status">{{{status}}}</div>
-		<div class="home-team">
-			<span>{{home_team.country}}</span>
-			<img class="flag" data-country="{{home_team.code}}" src="flags/{{{home_team.code}}}.png" />
-			<span>{{home_team.goals}}</span>
+			<div class="match-status row text-center">{{{status}}}</div>
+			<div class="teams row">
+				<div class="home-team col-xs-4 col-xs-offset-1">
+					<span>{{home_team.country}}</span>
+					<img class="flag" data-country="{{home_team.code}}" src="flags/{{{home_team.code}}}.png" />
+					<span>{{home_team.goals}}</span>
+				</div>
+				<div class="away-team col-xs-4 col-xs-offset-2">
+					<span>{{away_team.goals}}</span>
+					<img class="flag" data-country="{{away_team.code}}" src="flags/{{{away_team.code}}}.png" />
+					<span>{{away_team.country}}</span>
+				</div>
+			</div>
 		</div>
-		<div class="away-team">
-			<span>{{away_team.country}}</span>
-			<img class="flag" data-country="{{away_team.code}}" src="flags/{{{away_team.code}}}.png" />
-			<span>{{away_team.goals}}</span>
-		</div>
-	</div>
 	{{/each}}
 </script>
 
