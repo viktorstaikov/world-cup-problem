@@ -11,9 +11,6 @@
 	<img id="loading-image" src="ajax-loader.gif" alt="Loading..." />
 </div>
 
-<div id="test">
-</div>
-
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="handlebars-v1.3.0.js"></script>
@@ -25,12 +22,12 @@
 		<div class="jumbotron">
 			<div class="match-status row text-center">{{{status}}}</div>
 			<div class="teams row">
-				<div class="home-team col-xs-6">
+				<div class="home-team col-xs-5 text-right">
 					<span>{{home_team.country}}</span>
 					<img class="flag" data-country="{{home_team.code}}" src="flags/{{{home_team.code}}}.png" />
 					<span>{{home_team.goals}}</span>
 				</div>
-				<div class="away-team col-xs-6">
+				<div class="away-team col-xs-5 col-xs-offset-2">
 					<span>{{away_team.goals}}</span>
 					<img class="flag" data-country="{{away_team.code}}" src="flags/{{{away_team.code}}}.png" />
 					<span>{{away_team.country}}</span>
@@ -42,10 +39,7 @@
 
 <script type="text/template" id="progress-bar-tmpl">
 	<div class="progress progress-striped"> 
-	  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{pct}}" aria-valuemin="0" aria-valuemax="100" style="width: {{pct}}%">
-	    <span class="sr-only">{{msg}}</span>
-	    {{msg}}
-	  </div>
+	  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{pct}}" aria-valuemin="0" aria-valuemax="100" style="width: {{pct}}%">{{msg}}</div>
 	</div>
 </script>
 </body>
