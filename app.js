@@ -2,7 +2,8 @@
 
 $(document).ready(function() {
 
-  $.getJSON('http://worldcup.sfg.io/matches/today', function(matches, textStatus) {
+  // $.getJSON('http://worldcup.sfg.io/matches/today', function(matches, textStatus) {
+  $.getJSON('matches.json', function(matches, textStatus) {
     if (textStatus != 'success') {
       alert(textStatus);
     }
@@ -40,9 +41,16 @@ function registerHelpers() {
         minutesPassed -= 15;
       }
 
+      var status = 'Unknown status';
+      if (minutesPassed > 90) {
+        status = 'Finished';
+      } else {
+        status = (90 - minutesPassed) + 'minutes left';
+      }
+
       html = template({
         pct: minutesPassed * 100 / 90,
-        minLeft: 90 - minutesPassed
+        msg: status
       });
     }
     return html;
