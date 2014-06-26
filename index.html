@@ -3,11 +3,12 @@
 <head>
     <title>Hack-Students System</title>
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
 
-<div id='wrap'>
-	
+<div id='main'>
+	<img id="loading-image" src="ajax-loader.gif" alt="Loading..." />
 </div>
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -15,5 +16,10 @@
 <script src="handlebars-v1.3.0.js"></script>
 
 <script type="text/javascript" src="app.js"></script>
+
+<script type="text/template" id="list-template">
+	{{#each matches}}
+	{{/each}}
+</script>
 </body>
 </html>
