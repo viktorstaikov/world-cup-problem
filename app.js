@@ -10,6 +10,29 @@ $(document).ready(function() {
 
     registerHelpers();
     listMatches(matches);
+
+    $('.nav li').on('click', function(e) {
+      var $el = $(e.currentTarget);
+
+      var href = $el.children('a').attr('href');
+      if (href == window.location.hash || (window.location.hash == '' && href == '#today')) {
+        return;
+      }
+
+      $('li.active').removeClass('active');
+      $el.addClass('active');
+
+      $('#main > :not(header)').hide();
+      console.log(href);
+      if (href == '#today' && window.location.hash != '') {
+        console.log('navigate today\'s matches');
+      } else if (href == '#info') {
+        console.log('navigate team info');
+      } else if (href == '#compare') {
+        console.log('navigate compare teams');
+        compareTeams();
+      }
+    });
   });
 });
 
@@ -97,4 +120,17 @@ function listMatches(matches) {
 
     });
   });
+}
+
+function showTeamInfo() {
+
+  $('#main').append('<h1>team info</h1>');
+}
+
+function compareTeams() {
+  var source = $('#compare-teams-tmpl').html();
+  var template = Handlebars.compile(source);
+  var html = template({});
+
+  $('#main').append(html);
 }

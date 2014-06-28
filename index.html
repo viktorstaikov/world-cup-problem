@@ -11,9 +11,14 @@
 	<header>
 		<h1><small>Hack Bulgaria World Cup</small></h1>
 
+		<ul class="nav nav-tabs" role="tablist">
+		  <li class="active"><a href="#today">Today's matches</a></li>
+		  <li><a href="#info">Team info</a></li>
+		  <li><a href="#compare">Compare teams</a></li>
+		</ul>
 	</header>
 	
-		<img id="loading-image" src="ajax-loader.gif" alt="Loading..." />
+	<img id="loading-image" src="ajax-loader.gif" alt="Loading..." />
 </article>
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -25,6 +30,7 @@
 <script type="text/javascript" src="app.js"></script>
 
 <script type="text/template" id="list-template">
+	<div id='todays-matches'>
 	{{#each matches}}
 		<div class="jumbotron">
 			<div class="match-status row text-center">{{{status}}}</div>
@@ -42,6 +48,7 @@
 			</div>
 		</div>
 	{{/each}}
+	</div>
 </script>
 
 <script type="text/template" id="progress-bar-tmpl">
@@ -52,6 +59,12 @@
 
 <script type="text/template" id="popover-tmpl">
     {{country}} played {{games_played}} matches. With {{wins}} wins, {{draws}} draws and {{losses}} losses.
+</script>
+
+<script type="text/template" id="compare-teams-tmpl">
+	<div id='compare-teams'>
+		compare teams
+	</div>
 </script>
 
 </body>
