@@ -29,6 +29,7 @@
 <script type="text/javascript" src="app.js"></script>
 
 <script type="text/template" id="list-template">
+	<div id='matches'>
 	{{#each matches}}
 		<div class="jumbotron">
 			<div class="match-status row text-center">{{{status}}}</div>
@@ -46,6 +47,7 @@
 			</div>
 		</div>
 	{{/each}}
+	</div>
 </script>
 
 <script type="text/template" id="progress-bar-tmpl">
@@ -72,7 +74,14 @@
 </script>
 
 <script type='text/template' id='compare-teams-tmpl'>
-
+<div id='compare' class="jumbotron">
+{{#each teams}}
+	<h2>{{country}}</h2>
+	<div class='alert alert-{{winsStatus}}'>Wins: {{wins}}</div>
+	<div class='alert alert-{{drawsStatus}}'>Draws: {{draws}}</div>
+	<div class='alert alert-{{lossesStatus}}'> Loses: {{losses}}</div>
+{{/each}}
+</div>
 </script>
 
 </body>

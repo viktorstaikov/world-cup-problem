@@ -1,7 +1,7 @@
 'use strict';
 
 var _teams;
-var _selected;
+var _selected = [];
 
 $(document).ready(function() {
 
@@ -40,7 +40,7 @@ $(document).ready(function() {
   } else if (hash == '#compare') {
     $('#compare-teams').trigger('click');
   } else {
-    $('#today').trigger('click');
+    $('#todays-matches').trigger('click');
   }
 });
 
@@ -179,9 +179,69 @@ function listTeams(teams) {
 }
 
 function compareTeams(teams) {
-  if (_selected && _selected.length < 1) {
-    _selected = [teams[0], teams[1]];
+  if (_selected.length < 1) {
+    _selected.push(teams[0]);
+    _selected.push(teams[1]);
   }
 
   console.log(_selected);
-};
+
+  var maxW, maxD, maxL, maxWidx, maxDidx, maxLidx;
+  maxW = maxD = maxL = maxWidx = maxDidx = maxLidx = -1;
+
+  _selected.forEach(function(team, idx) {
+    if (maxW < team.wins) {
+      maxW = team.wins;
+      maxWidx = idx;
+    }
+    if (maxD < team.draws) {
+      maxD = team.draws;
+      maxDidx = idx;
+    }
+    if (maxL < team.losses) {
+      maxL = team.losses;
+      maxLidx = idx;
+    }
+  });
+  _selected.forEach(function(team, idx) {
+    if (team.wins == maxW) {
+      if (idx == maxWidx) {
+        team.winsStatus = 'success';
+      } else {
+        team.winsStatus = 'warning';
+        maxWidx = idx;
+      }
+    } else {
+      team.winsStatus = 'danger';
+    }
+
+    if (team.draws == maxD) {
+      if (idx == maxDidx) {
+        team.drawsStatus = 'success';
+      } else {
+        team.drawsStatus = 'warning';
+        maxDidx = idx;
+      }
+    } else {
+      team.drawsStatus = 'danger';
+    }
+
+    if (team.losses == maxL) {
+      if (idx == maxLidx) {
+        team.lossesStatus = 'success';
+      } else {
+        team.lossesStatus = 'warning';
+        maxLidx = idx;
+      }
+    } else {
+      team.lossesStatus = 'danger';
+    }
+  });
+
+  var source = $('#compare-teams-tmpl').html();
+  var template = Handlebars.compile(source);
+  var html = template({
+    teams: _selected
+  });
+  $('#main').append(html);
+}
