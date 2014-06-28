@@ -1,22 +1,47 @@
 'use strict';
 
 var _teams;
+var _selected;
 
 $(document).ready(function() {
 
   registerHelpers();
 
-  showTodaysMatches();
-
   $('#todays-matches').on('click', function(e) {
     $('#main > :not(header)').remove();
+
+    $('li.active').removeClass('active');
+    $(e.currentTarget.parentElement).addClass('active');
+
     showTodaysMatches();
   });
 
   $('#team-info').on('click', function(e) {
     $('#main > :not(header)').remove();
+
+    $('li.active').removeClass('active');
+    $(e.currentTarget.parentElement).addClass('active');
+
     showTeamInfo();
   });
+
+  $('#compare-teams').on('click', function(e) {
+    $('#main > :not(header)').remove();
+
+    $('li.active').removeClass('active');
+    $(e.currentTarget.parentElement).addClass('active');
+
+    showCompareTeams();
+  });
+
+  var hash = window.location.hash;
+  if (hash == '#info') {
+    $('#team-info').trigger('click');
+  } else if (hash == '#compare') {
+    $('#compare-teams').trigger('click');
+  } else {
+    $('#today').trigger('click');
+  }
 });
 
 function showTodaysMatches() {
@@ -24,8 +49,6 @@ function showTodaysMatches() {
     if (textStatus != 'success') {
       alert(textStatus);
     }
-
-
 
     listMatches(matches);
   });
@@ -39,6 +62,17 @@ function showTeamInfo() {
 
     _teams = teams;
     listTeams(_teams);
+  });
+}
+
+function showCompareTeams() {
+  $.getJSON('http://worldcup.sfg.io/teams/results', function(teams, textStatus) {
+    if (textStatus != 'success') {
+      alert(textStatus);
+    }
+
+    _teams = teams;
+    compareTeams(_teams);
   });
 }
 
@@ -157,3 +191,11 @@ function listTeams(teams) {
     $('.country-information').replaceWith(teamHtml);
   });
 }
+
+function compareTeams(teams) {
+  if (_selected && _selected.length < 1) {
+    _selected = [teams[0], teams[1]];
+  }
+
+  console.log(_selected);
+};
