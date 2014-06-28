@@ -1,5 +1,7 @@
 'use strict';
 
+var _selectedTeams = [];
+
 $(document).ready(function() {
 
   $.getJSON('http://worldcup.sfg.io/matches/today', function(matches, textStatus) {
@@ -131,6 +133,15 @@ function compareTeams() {
   var source = $('#compare-teams-tmpl').html();
   var template = Handlebars.compile(source);
   var html = template({});
+
+  $.getJSON('', function(teams, textStatus) {
+    if (textStatus != 'success') {
+      console.log(textStatus);
+    }
+
+    _selectedTeams.push(teams[0]);
+    _selectedTeams.push(teams[1]);
+  });
 
   $('#main').append(html);
 }
