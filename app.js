@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 
-  // $.getJSON('http://worldcup.sfg.io/matches/today', function(matches, textStatus) {
+  //$.getJSON('http://worldcup.sfg.io/matches/today', function(matches, textStatus) {
   $.getJSON('matches.json', function(matches, textStatus) {
     if (textStatus != 'success') {
       alert(textStatus);
@@ -75,28 +75,18 @@ function listMatches(matches) {
   $('.flag').on('click', function(e) {
     var $flag = $(e.currentTarget);
     var countryCode = $(this).data('code');
-    var country = $(this).data('country');
-    var wins = 0;
-    var draw = 0;
-    $.getJSON('http://worldcup.sfg.io/matches/country?fifa_code=' + countryCode, function(countryMatches) {
-      information.country = country;
-      information.played = countryMatches.length;
+    $.getJSON('http://worldcup.sfg.io/teams/results', function(countryMatches) {
       countryMatches.forEach(function(match) {
-        if (match.winner === country) {
-          wins++;
-        }
-        if (match.winner === 'Draw') {
-          draw++;
+        if (match.fifa_code === countryCode) {
+          information = match;
         }
       });
-      information.wins = wins;
-      information.draw = draw;
 
       $flag.popover({
         placement: 'bottom',
         html: false,
         content: popoverTmpl(information),
-        title: country,
+        title: information.country,
         trigger: 'manual'
       });
       console.log(popoverTmpl(information));
