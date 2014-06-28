@@ -2,8 +2,8 @@
 
 $(document).ready(function() {
 
-  //$.getJSON('http://worldcup.sfg.io/matches/today', function(matches, textStatus) {
-  $.getJSON('matches.json', function(matches, textStatus) {
+  $.getJSON('http://worldcup.sfg.io/matches/today', function(matches, textStatus) {
+    // $.getJSON('matches.json', function(matches, textStatus) {
     if (textStatus != 'success') {
       alert(textStatus);
     }
