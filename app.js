@@ -179,7 +179,7 @@ function listTeams(teams) {
   $('#loading-image').hide();
   $('#main').append(html);
 
-   $('.select-country-options').change(function() {
+  $('.select-country-options').change(function() {
     var selected = $(this).val();
     teams.forEach(function(team) {
       if (team.fifa_code === selected) {
@@ -194,8 +194,8 @@ function listTeams(teams) {
 
 function compareTeams(teams) {
   if (_selected.length < 1) {
-    _selected.push(teams[0]);
-    _selected.push(teams[1]);
+    _selected.push(teams[getRandomInt(0, _teams.length - 1)]);
+    _selected.push(teams[getRandomInt(0, _teams.length - 1)]);
   }
 
   console.log(_selected);
@@ -257,5 +257,15 @@ function compareTeams(teams) {
   var html = template({
     teams: _selected
   });
+  $('#compare').remove();
   $('#main').append(html);
+
+  $('#add-team-btn').on('click', function() {
+    _selected.push(teams[getRandomInt(0, _teams.length - 1)]);
+    compareTeams(teams);
+  });
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
