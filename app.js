@@ -4,21 +4,41 @@ var _teams;
 
 $(document).ready(function() {
 
-  /*$.getJSON('http://worldcup.sfg.io/matches/today', function(matches, textStatus) {
-    // $.getJSON('matches.json', function(matches, textStatus) {
+  registerHelpers();
+
+  showTodaysMatches();
+
+  $('#todays-matches').on('click', function(e) {
+    $('#main > :not(header)').hide();
+    showTodaysMatches();
+  });
+
+  $('#team-info').on('click', function(e) {
+    $('#main > :not(header)').hide();
+    showTeamInfo();
+  });
+});
+
+function showTodaysMatches() {
+  $.getJSON('http://worldcup.sfg.io/matches/today', function(matches, textStatus) {
     if (textStatus != 'success') {
       alert(textStatus);
     }
 
-    registerHelpers();
     listMatches(matches);
-  });*/
-registerHelpers();
-  $.getJSON('http://worldcup.sfg.io/teams/results', function(teams) { console.log(teams);
+  });
+}
+
+function showTeamInfo() {
+  $.getJSON('http://worldcup.sfg.io/teams/results', function(teams, textStatus) {
+    if (textStatus != 'success') {
+      alert(textStatus);
+    }
+
     _teams = teams;
     listTeams(_teams);
   });
-});
+}
 
 function registerHelpers() {
   Handlebars.registerHelper('status', function() {
