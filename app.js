@@ -1,25 +1,17 @@
 'use strict';
 
 var _teams;
+var _selected;
 
 $(document).ready(function() {
 
   registerHelpers();
 
-  var hash = window.location.hash;
-  if (hash == '#info') {
-    showTeamInfo();
-  } else if (hash == '#compare') {
-    showCompareTeams();
-  } else {
-    showTodaysMatches();
-  }
-
   $('#todays-matches').on('click', function(e) {
     $('#main > :not(header)').remove();
 
     $('li.active').removeClass('active');
-    $(e.currentTarget).addClass('active');
+    $(e.currentTarget.parentElement).addClass('active');
 
     showTodaysMatches();
   });
@@ -28,7 +20,7 @@ $(document).ready(function() {
     $('#main > :not(header)').remove();
 
     $('li.active').removeClass('active');
-    $(e.currentTarget).addClass('active');
+    $(e.currentTarget.parentElement).addClass('active');
 
     showTeamInfo();
   });
@@ -37,10 +29,19 @@ $(document).ready(function() {
     $('#main > :not(header)').remove();
 
     $('li.active').removeClass('active');
-    $(e.currentTarget).addClass('active');
+    $(e.currentTarget.parentElement).addClass('active');
 
     showCompareTeams();
   });
+
+  var hash = window.location.hash;
+  if (hash == '#info') {
+    $('#team-info').trigger('click');
+  } else if (hash == '#compare') {
+    $('#compare-teams').trigger('click');
+  } else {
+    $('#today').trigger('click');
+  }
 });
 
 function showTodaysMatches() {
@@ -178,5 +179,9 @@ function listTeams(teams) {
 }
 
 function compareTeams(teams) {
+  if (_selected && _selected.length < 1) {
+    _selected = [teams[0], teams[1]];
+  }
 
+  console.log(_selected);
 };
