@@ -134,12 +134,26 @@ function listMatches(matches) {
 }
 
 function listTeams(teams) {
-  var source = $('#team-information-tmpl').html();
-  var template = Handlebars.compile(source);
-  var html = template({
+  var selectSource = $('#select-team-tmpl').html();
+  var selectTemplate = Handlebars.compile(selectSource);
+  var html = selectTemplate({
     teams: teams
   });
+  var selectedTeam = {};
+  var infoSource = $('#team-information-tmpl').html();
 
   $('#loading-image').hide();
   $('#main').append(html);
+
+   $('.select-country-options').change(function() {
+    var selected = $(this).val();
+    teams.forEach(function(team) {
+      if (team.fifa_code === selected) {
+        selectedTeam = team;
+      }
+    });
+    var infoTemplate = Handlebars.compile(infoSource);
+    var teamHtml = infoTemplate(selectedTeam);
+    $('.country-information').replaceWith(teamHtml);
+  });
 }

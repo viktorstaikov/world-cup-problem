@@ -58,16 +58,25 @@
     {{country}} played {{games_played}} matches. With {{wins}} wins, {{draws}} draws and {{losses}} losses.
 </script>
 
-<script type="text/template" id="team-information-tmpl">
+<script type="text/template" id="select-team-tmpl">
 	<div class="select-country">
-		<select>
+		<select class="select-country-options">
 			{{#each teams}}
 				{{option}}
 			{{/each}}
 		</select>
 	</div>
 	<div class="country-information">
-		<span class="country-name">{{team.country}}</span>
+	</div>
+</script>
+<script type="text/template" id="team-information-tmpl">
+	<div class="country-information">
+		<div class="country-name">{{country}}</div>
+		<div class="group">Group: {{group_letter}}</div>
+		<div class="games-played">Games played: {{games_played}}</div>
+		<div class="wins">Games won: {{wins}}</div>
+		<div class="wins">Games draws: {{draws}}</div>
+		<div class="wins">Games losses: {{losses}}</div>
 	</div>
 </script>
 </body>
