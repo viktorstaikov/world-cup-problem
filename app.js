@@ -9,12 +9,12 @@ $(document).ready(function() {
   showTodaysMatches();
 
   $('#todays-matches').on('click', function(e) {
-    $('#main > :not(header)').hide();
+    $('#main > :not(header)').remove();
     showTodaysMatches();
   });
 
   $('#team-info').on('click', function(e) {
-    $('#main > :not(header)').hide();
+    $('#main > :not(header)').remove();
     showTeamInfo();
   });
 });
@@ -24,6 +24,8 @@ function showTodaysMatches() {
     if (textStatus != 'success') {
       alert(textStatus);
     }
+
+
 
     listMatches(matches);
   });
