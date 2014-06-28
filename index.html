@@ -54,5 +54,17 @@
     {{country}} played {{games_played}} matches. With {{wins}} wins and {{draws}} draws.
 </script>
 
+<script type="text/template" id="team-information-tmpl">
+	<div class="select-country">
+		<select>
+			{{#each teams}}
+				{{option}}
+			{{/each}}
+		</select>
+	</div>
+	<div class="country-information">
+		<span class="country-name">{{team.country}}</span>
+	</div>
+</script>
 </body>
 </html>
